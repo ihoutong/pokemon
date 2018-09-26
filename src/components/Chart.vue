@@ -5,8 +5,8 @@
 
 <script>
 import * as d3 from 'd3';
-import Data from '../assets/parsed_pokemon.json';
 import Colors from '../assets/typeColors.json';
+import Original from '../assets/orig_pokemon.json';
 
 export default {
   name: 'chart',
