@@ -39,14 +39,11 @@ export default {
     this.draw();
   },
   methods: {
-    //d3 seems to make some assumption about data
-    //examples seem to have an id field
     draw() {
       this.svg = select('#chart')
         .append('svg')
         .attr('height', this.height)
         .attr('width', this.width);
-
         
       this.circles = this.svg.selectAll('g')
         .data(this.data)
@@ -60,15 +57,6 @@ export default {
           return d.color;
         })
         .on('click', this.clicked);
-      
-      /*
-      this.text = this.svg.selectAll('g')
-        .data(this.data)
-        .append('text')
-        .attr('text-anchor', 'middle')
-        .text(function (d) {
-          return `${d.type}`;
-        });*/
     },
     tick() {
       this.circles.attr('cx', function (d) {
@@ -76,12 +64,6 @@ export default {
       }).attr('cy', function (d) {
         return d.y
       })
-      /*
-      this.text.attr('x', (d) => {
-        return d.x;
-      }).attr('y', (d) => {
-        return d.y
-      });*/
     },
     radius(value) {
       return scaleSqrt().domain([43,234]).range([10,80])(value)
