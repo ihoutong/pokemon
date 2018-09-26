@@ -1,0 +1,19 @@
+{
+  "against_fire": "#F08030",
+  "against_flying": "#A890F0",
+  "against_ice": "#98D8D8",
+  "against_psychic":  "#F85888",
+  "against_ground": "#E0C068",
+  "against_rock": "#B8A038",
+  "against_water": "#6890F0",
+  "against_electric": "#F8D030",
+  "against_grass": "#78C850",
+  "against_fight": "#C03028",
+  "against_poison": "#A040A0",
+  "against_steel": "#B8B8D0",
+  "against_bug": "#A8B820",
+  "against_fairy": "#EE99AC",
+  "against_dark": "#705848",
+  "against_ghost": "#705898",
+  "against_dragon": "#7038F8"
+}
