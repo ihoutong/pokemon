@@ -4,7 +4,10 @@
 </template>
 
 <script>
-import * as d3 from 'd3';
+import {select, selectAll} from 'd3-selection';
+import {forceSimulation, forceX, forceY, forceCollide} from 'd3-force';
+import {scaleSqrt} from 'd3-scale';
+
 import Colors from '../assets/typeColors.json';
 import Original from '../assets/orig_pokemon.json';
 
@@ -24,10 +27,10 @@ export default {
   created() {
     this.parseData();
 
-    this.simulation = d3.forceSimulation(this.data)
-      .force('x', d3.forceX(this.width/2).strength(0.05))
-      .force('y', d3.forceY(this.height/2).strength(0.05))
-      .force('collide', d3.forceCollide((d) => {
+    this.simulation = forceSimulation(this.data)
+      .force('x', forceX(this.width/2).strength(0.05))
+      .force('y', forceY(this.height/2).strength(0.05))
+      .force('collide', forceCollide((d) => {
         return this.radius(d.value) + 3;
       }))
       .on('tick', this.tick);
@@ -39,7 +42,7 @@ export default {
     //d3 seems to make some assumption about data
     //examples seem to have an id field
     draw() {
-      this.svg = d3.select('#chart')
+      this.svg = select('#chart')
         .append('svg')
         .attr('height', this.height)
         .attr('width', this.width);
@@ -81,7 +84,7 @@ export default {
       });*/
     },
     radius(value) {
-      return d3.scaleSqrt().domain([43,234]).range([10,80])(value)
+      return scaleSqrt().domain([43,234]).range([10,80])(value)
     },
     parseData() {
       Original.map((val) => {
