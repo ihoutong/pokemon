@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import {select, selectAll} from 'd3-selection';
+import {select} from 'd3-selection';
 import {forceSimulation, forceX, forceY, forceCollide} from 'd3-force';
 import {scaleSqrt} from 'd3-scale';
 
